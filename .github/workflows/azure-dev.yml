@@ -34,7 +34,8 @@ jobs:
           dotnet-version: '8.0.400'
       - name: Install .NET Aspire workload
         run: dotnet workload install aspire
-
+      - name: Restore dependencies
+        run: dotnet restore /home/runner/work/eShopOnAzure/eShopOnAzure/src/Catalog.API/Catalog.API.csproj
       - name: Log in with Azure (Federated Credentials)
         run: |
           azd auth login `
